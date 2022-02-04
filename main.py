@@ -10,7 +10,6 @@ def create_app():
     app = FastAPI(docs_url=None, redoc_url=None)
 
     app.mount("/avatars", StaticFiles(directory="avatars"), name="avatars")
-    app.mount("/images", StaticFiles(directory="images"), name="images")
     app.mount("/static", StaticFiles(directory="static"), name="static")
     app.include_router(api.router, prefix="/api")
     app.include_router(client.router)
