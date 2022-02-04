@@ -56,7 +56,7 @@ def create_comment(users, post_slug):
 
 
 def generate_title():
-    return generic.text.text(random.randint(5, 10))
+    return generic.text.text(random.randint(1, 2))
 
 
 def create_posts(users, amount):
@@ -115,7 +115,7 @@ def create_photo(users, filename):
 
 USER_AMOUNT = 250
 TODO_AMOUNT = 1000
-POSTS_AMOUNT = 1000
+POSTS_AMOUNT = 100
 PHOTO_AMOUNT = 500
 
 

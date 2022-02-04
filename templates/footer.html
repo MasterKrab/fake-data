@@ -1,8 +1,13 @@
-<footer class="footer mt-auto columns is-align-items-center">
-    <img class="image is-96x96 column" width="350" height="100" src="{{ url_for('static', path='/assets/images/logo.svg') }}"
-         alt="Test Data"/>
-    <p class="column has-text-centered">
-        Made with <i class="fas fa-heart has-text-danger" aria-label="heart"></i> and <span
-            class="has-text-info has-text-weight-semibold">python</span>
-    </p>
+<footer class="footer mt-auto">
+    <div class="columns is-align-items-center has-text-centered container mx-auto">
+        <div class="column is-half">
+            <img class="footer-logo" width="350" height="100" src="{{ url_for('static', path='/assets/images/logo.svg') }}"
+                 alt="Test Data"/>
+        </div>
+
+        <p class="column is-half">
+            Made with <i class="fas fa-heart has-text-danger" aria-label="heart"></i> and <span
+                class="has-text-info has-text-weight-semibold">python</span>
+        </p>
+    </div>
 </footer>
