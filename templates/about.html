@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+
+{% from "metadata.html" import metadata %}
+
+{% block metadata %}
+{{ metadata("About", "Information about this project", request.url) }}
+{% endblock %}
+
+{% block content %}
+<section class="block">
+    <h1 class="title is-size-1 is-spaced">About</h1>
+    <p><strong>Test Data</strong> is a free fake data REST API for developers. You can use it as you want, <strong>attribution is not
+        required</strong>.</p>
+</section>
+
+
+<section class="block">
+    <h2 class="title is-5">Story</h2>
+    <p>The project was born as a resource for beginners to get data quickly and easily and learn how to manage an API.</p>
+</section>
+
+<section class="block">
+    <h2 class="title is-5">Used tools</h2>
+    <div class="content">
+        <ul>
+            <li><a href="https://www.python.org/" target="_blank" rel="noopener">Python</a></li>
+            <li><a href="https://fastapi.tiangolo.com/" target="_blank" rel="noopener">FastAPI</a></li>
+            <li><a href="https://github.com/Fl1yd/LightDB" target="_blank" rel="noopener">LightDB</a></li>
+            <li><a href="https://mimesis.name/" target="_blank" rel="noopener">Mimesis</a></li>
+             <li><a href="https://github.com/sepandhaghighi/samila" target="_blank" rel="noopener">Samila</a></li>
+            <li><a href="https://bulma.io/" target="_blank" rel="noopener">Bulma css</a></li>
+            <li><a href="https://github.com/luyilin/json-format-highlight" target="_blank" rel="noopener">JSON format highlight</a></li>
+        </ul>
+    </div>
+</section>
+{% endblock %}

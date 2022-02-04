@@ -1,0 +1,57 @@
+{% extends "base.html" %}
+
+{% from "metadata.html" import metadata %}
+
+{% block metadata %}
+{{ metadata("All database", "Documentation for database resource.", request.url) }}
+{% endblock %}
+
+
+{% block content %}
+<h1 class="title is-size-1 is-spaced">Random <span class="tag has-text-weight-semibold">{{ length }} items</span></h1>
+
+<section class="block">
+    <h2 class="title is-size-4 is-spaced">Get all database</h2>
+    <code>/api/all</code>
+</section>
+
+<section class="block content">
+    <h2>Database Fields</h2>
+    <table>
+        <thead>
+        <tr>
+            <th>Field</th>
+            <th>Type</th>
+            <th>Description</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>users</td>
+            <td>array</td>
+            <td>Array of <a href="/docs/users">users</a></td>
+        </tr>
+        <tr>
+            <td>todos</td>
+            <td>array</td>
+            <td>Array of <a href="/docs/todos">todos</a></td>
+        </tr>
+        <tr>
+            <td>posts</td>
+            <td>array</td>
+            <td>Array of <a href="/docs/posts">posts</a></td>
+        </tr>
+        <tr>
+            <td>comments</td>
+            <td>array</td>
+            <td>Array of <a href="/docs/users">comments</a></td>
+        </tr>
+        <tr>
+            <td>photos</td>
+            <td>array</td>
+            <td>Array of <a href="/docs/photos">photos</a></td>
+        </tr>
+        </tbody>
+    </table>
+</section>
+{% endblock %}

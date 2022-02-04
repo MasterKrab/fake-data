@@ -1,0 +1,92 @@
+{% extends "base.html" %}
+
+{% from "metadata.html" import metadata %}
+
+{% block metadata %}
+{{ metadata("Posts", "Documentation for post resource.", request.url) }}
+{% endblock %}
+
+
+{% block content %}
+<h1 class="title is-size-1 is-spaced">Todos <span class="tag has-text-weight-semibold">{{ length }} items</span></h1>
+
+<section class="block">
+    <h2 class="title is-size-4 is-spaced">Get all todos</h2>
+    <p class="subtitle">Get an <code>array</code> of all todos using id path parameter.</p>
+    <code>/api/posts</code>
+</section>
+
+<section class="block">
+    <h2 class="title is-size-4 is-spaced">Filter by user id</h2>
+    <p class="subtitle">Filter todos by user id query parameter.</p>
+    <code>/api/posts?user_id={user_id}</code>
+
+    <h3 class="title is-size-5 mt-5">Examples</h3>
+    <div class="content">
+        <ul>
+            {% for user in examples_users %}
+            <li><a href="/api/posts?user_id={{ user }}" target="_blank">/api/posts/?user_id={{ user }}</a></li>
+            {% endfor %}
+        </ul>
+    </div>
+</section>
+
+<section class="block">
+    <h2 class="title is-size-4 is-spaced">Get todo by slug</h2>
+    <code>/api/posts/{slug}</code>
+
+    <h3 class="title is-size-5 mt-5">Examples</h3>
+    <div class="content">
+        <ul>
+            {% for example in examples %}
+            <li><a href="/api/posts/{{ example }}" target="_blank">/api/posts/{{ example }}</a></li>
+            {% endfor %}
+        </ul>
+    </div>
+</section>
+
+<section class="block content">
+    <h2>Comment Fields</h2>
+    <table>
+        <thead>
+        <tr>
+            <th>Field</th>
+            <th>Type</th>
+            <th>Description</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>userId</td>
+            <td>string</td>
+            <td>ID of owner <a href="/docs/users">user</a></td>
+        </tr>
+        <tr>
+            <td>slug</td>
+            <td>string</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>content</td>
+            <td>string</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>readTime</td>
+            <td>string</td>
+            <td>Read time in minutes. Example: 3 minutes</td>
+        </tr>
+        <tr>
+            <td>createdAt</td>
+            <td>date</td>
+            <td>Date of creation on ISO format</td>
+        </tr>
+        <tr>
+            <td>comments</td>
+            <td>array</td>
+            <td>Array of <a href="/docs/comments">comments</a> on the posts</td>
+        </tr>
+        </tbody>
+    </table>
+</section>
+{% endblock %}

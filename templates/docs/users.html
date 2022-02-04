@@ -1,0 +1,92 @@
+{% extends "base.html" %}
+
+{% from "metadata.html" import metadata %}
+
+{% block metadata %}
+{{ metadata("Users", "Documentation for user resource.", request.url) }}
+{% endblock %}
+
+
+{% block content %}
+<h1 class="title is-size-1 is-spaced">Users <span class="tag has-text-weight-semibold">{{ length }} items</span></h1>
+
+<section class="block">
+    <h2 class="title is-size-4 is-spaced">Get all users</h2>
+    <p class="subtitle">Get <code>array</code> of all users using id path parameter.</p>
+    <code>/api/users</code>
+</section>
+
+<section class="block">
+    <h2 class="title is-size-4 is-spaced">Get user by ID</h2>
+    <code>/api/users/{id}</code>
+
+    <h3 class="title is-size-5 mt-5">Examples</h3>
+    <div class="content">
+        <ul>
+            {% for example in users %}
+            <li><a href="/api/users/{{ example }}" target="_blank">/api/users/{{ example }}</a></li>
+            {% endfor %}
+        </ul>
+    </div>
+</section>
+
+<section class="block content">
+    <h2>User Fields</h2>
+    <table>
+        <thead>
+        <tr>
+            <th>Field</th>
+            <th>Type</th>
+            <th>Description</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>id</td>
+            <td>string</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>name</td>
+            <td>string</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>username</td>
+            <td>string</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>avatar</td>
+            <td>string</td>
+            <td>URL to avatar image in png format</td>
+        </tr>
+        <tr>
+            <td>email</td>
+            <td>string</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>gender</td>
+            <td>string</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>phone</td>
+            <td>string</td>
+            <td>Phone number</td>
+        </tr>
+        <tr>
+            <td>occupation</td>
+            <td>string</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>nationality</td>
+            <td>string</td>
+            <td></td>
+        </tr>
+        </tbody>
+    </table>
+</section>
+{% endblock %}

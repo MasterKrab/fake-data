@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+
+{% from "metadata.html" import metadata %}
+
+{% block metadata %}
+{{ metadata("All database", "Documentation for database resource.", request.url) }}
+{% endblock %}
+
+
+{% block content %}
+<h1 class="title is-size-1 is-spaced">Documentation</h1>
+<p>List of available resources.</p>
+
+<h2 class="title is-size-5 mt-5">Resources</h2>
+<div class="content">
+    <ul>
+        {% for resource in resources %}
+        <li>
+            <a class="is-size-5" href="/docs/{{ resource.slug }}">
+                {{ resource.label }}
+                {% if resource.amount %}
+                <span class="tag has-text-weight-semibold">{{ resource.amount }} items</span>
+                {% endif %}
+            </a>
+        </li>
+        {% endfor %}
+    </ul>
+</div>
+{% endblock %}

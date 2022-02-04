@@ -1,0 +1,36 @@
+
+### GET USERS
+GET http://127.0.0.1:8000/api/users
+Accept: application/json
+
+### GET TODOS
+GET http://127.0.0.1:8000/api/todos
+Accept: application/json
+
+### GET TODO BY ID
+GET http://127.0.0.1:8000/api/todos/uI3Zjjn_0L
+Accept: application/json
+
+### GET POSTS
+GET http://127.0.0.1:8000/api/posts
+Accept: application/json
+
+### GET POST BY SLUG
+GET http://127.0.0.1:8000/api/posts/they-are-written-as-strings-of-consecutive-alphanumeric-characters-the-first-character-being-lowercase
+Accept: application/json
+
+### GET POST BY ID
+GET http://127.0.0.1:8000/api/posts/
+Accept: application/json
+
+### GET COMMENTS
+GET http://127.0.0.1:8000/api/comments
+Accept: application/json
+
+### GET PHOTOS
+GET http://127.0.0.1:8000/api/photos
+Accept: application/json
+
+### GET ALL DATABASE
+GET http://127.0.0.1:8000/api/all
+Accept: application/json

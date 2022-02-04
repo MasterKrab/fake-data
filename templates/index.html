@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+
+{% from "metadata.html" import metadata %}
+
+{% block metadata %}
+{{ metadata("Home", "Free fake data REST API for developers", request.url) }}
+{% endblock %}
+
+{% block head %}
+<script type="module" src="{{ url_for('static', path='/js/example.js') }}"></script>
+{% endblock %}
+
+{% block content %}
+<section>
+    <h1 class="title is-size-1 is-spaced">Test Data</h1>
+    <p class="subtitle">Free fake data REST API for developers.</p>
+</section>
+
+<article class="px-2 py-5">
+    <h2 class="title is-6 is-spaced">Let's see an example</h2>
+    <article class="box ml-2" aria-live="polite">
+        <div class="media is-flex-wrap-wrap	">
+            <div class="media-left mb-2">
+                <figure class="image is-48x48">
+                    <img id="avatar" src="{{ user.avatar }}" alt="{{ user.name }}"/>
+                </figure>
+            </div>
+            <div>
+                <h2 id="name" class="title is-size-5-mobile is-size-4">{{ user.name }}</h2>
+                <p id="email" class="subtitle is-size-7-mobile is-size-6">{{ user.email }}</p>
+            </div>
+        </div>
+    </article>
+    <div>
+        <button class="button is-primary mt-2" id="button">Fetch random user</button>
+        <code class="is-size-7 is-size-6-tablet mt-2 is-inline-block">{{ request.url }}api/random/user</code>
+    </div>
+    <pre id="json-data" class="mt-2">{{ json_data }}</pre>
+</article>
+{% endblock %}

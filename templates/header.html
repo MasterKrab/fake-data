@@ -1,0 +1,41 @@
+<header class="column is-one-quarter-desktop pb-0">
+    <div class="is-flex is-align-items-center">
+        <a href="/">
+            <img class="logo" width="350" height="100" src="{{ url_for('static', path='/assets/images/logo.svg') }}" alt="Test Data" />
+        </a>
+        <button id="menu-button" class="navbar-burger" role="switch" aria-checked="false" aria-label="Menu">
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+        </button>
+    </div>
+    <nav id="menu" class="menu navbar-menu">
+        <ul class="menu-list">
+            <li><a href="/">Home</a></li>
+             <li><a href="/about">About</a></li>
+            <li>
+                <a href="/docs">Docs</a>
+                <ul>
+                    <li><a href="/docs/users">Users</a></li>
+                     <li><a href="/docs/todos">Todos</a></li>
+                     <li><a href="/docs/posts">Posts</a></li>
+                     <li><a href="/docs/comments">Comments</a></li>
+                     <li><a href="/docs/photos">Photos</a></li>
+                     <li><a href="/docs/random">Random</a></li>
+                     <li><a href="/docs/all">All database</a></li>
+                </ul>
+            </li>
+            <li><a href="/playground">Playground</a></li>
+        </ul>
+    </nav>
+</header>
+
+<script type="module">
+    const menuButton = document.getElementById('menu-button');
+    const menu = document.getElementById('menu');
+
+    menuButton.addEventListener('click', () => {
+        menuButton.setAttribute('aria-checked', menuButton.getAttribute('aria-checked') === 'false');
+        menu.classList.toggle('is-active');
+    });
+</script>

@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+
+{% from "metadata.html" import metadata %}
+
+{% block metadata %}
+{{ metadata("Playground", "Learn and test our API using the playground.", request.url) }}
+{% endblock %}
+
+{% block head %}
+<script type="module" src="{{ url_for('static', path='/js/playground.js') }}"></script>
+{% endblock %}
+
+{% block content %}
+<h1 class="title is-size-1 is-spaced">Playground</h1>
+<p class="subtitle">Learn and test our API using the playground.</p>
+
+<form id="form" class="block">
+    <label class="tag" for="endpoint">{{ origin }}/api</label>
+    <div class="field has-addons">
+        <div class="control container">
+            <input class="input" type="text" name="endpoint" id="endpoint" aria-label="API endpoint" placeholder="random/photo" value=""
+                   required
+                   data-base-url="{{ origin }}/api"/>
+        </div>
+        <div class="control">
+            <button class="button is-primary" name="submit">Try it out</button>
+        </div>
+    </div>
+</form>
+
+<code id="status" class="tag is-medium has-text-weight-medium is-family-sans-serif has-text-success">200 OK</code>
+<pre id="json" class="block">{"detail": "Welcome to the Test Data playground! Try making a request to random/photo."}</pre>
+
+<article class="message is-info">
+    <div class="message-header">
+        <h2>Resources</h2>
+    </div>
+    <div class="message-body container">
+        <ul class="columns is-multiline">
+            {% for resource in ["users", "todos", "posts", "comments", "photos", "random", "all"] %}
+            <li class="column is-half is-size-6 p-2"><code>/{{ resource }}</code></li>
+            {% endfor %}
+        </ul>
+    </div>
+</article>
+{% endblock %}

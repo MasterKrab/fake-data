@@ -1,0 +1,102 @@
+{% extends "base.html" %}
+
+{% from "metadata.html" import metadata %}
+
+{% block metadata %}
+{{ metadata("Photo", "Documentation for photo resource.", request.url) }}
+{% endblock %}
+
+
+{% block content %}
+<h1 class="title is-size-1 is-spaced">Photos <span class="tag has-text-weight-semibold">{{ length }} items</span></h1>
+
+<section class="block">
+    <h2 class="title is-size-4 is-spaced">Get all photos</h2>
+    <p class="subtitle">Get an <code>array</code> of all photos using id path parameter.</p>
+    <code>/api/photos</code>
+</section>
+
+<section class="block">
+    <h2 class="title is-size-4 is-spaced">Filter by user id</h2>
+    <p class="subtitle">Filter photos by user id query parameter.</p>
+    <code>/api/photos?user_id={user_id}</code>
+
+    <h3 class="title is-size-5 mt-5">Examples</h3>
+    <div class="content">
+        <ul>
+            {% for user in examples_users %}
+            <li><a href="/api/photos?user_id={{ user }}" target="_blank">/api/photos/?user_id={{ user }}</a></li>
+            {% endfor %}
+        </ul>
+    </div>
+</section>
+
+<section class="block">
+    <h2 class="title is-size-4 is-spaced">Get todo by id</h2>
+    <code>/api/photos/{id}</code>
+
+    <h3 class="title is-size-5 mt-5">Examples</h3>
+    <div class="content">
+        <ul>
+            {% for example in examples %}
+            <li><a href="/api/photos/{{ example }}" target="_blank">/api/photos/{{ example }}</a></li>
+            {% endfor %}
+        </ul>
+    </div>
+</section>
+
+<section class="block content">
+    <h2>Comment Fields</h2>
+    <table>
+        <thead>
+        <tr>
+            <th>Field</th>
+            <th>Type</th>
+            <th>Description</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>userId</td>
+            <td>string</td>
+            <td>ID of owner <a href="/docs/users">user</a></td>
+        </tr>
+        <tr>
+            <td>title</td>
+            <td>string</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>description</td>
+            <td>string</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>url</td>
+            <td>string</td>
+            <td>URL to image in png format</td>
+        </tr>
+        <tr>
+            <td>createdAt</td>
+            <td>date</td>
+            <td>Date of creation on ISO format</td>
+        </tr>
+        <tr>
+            <td>visits</td>
+            <td>number</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>likes</td>
+            <td>number</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>disLikes</td>
+            <td>number</td>
+            <td></td>
+        </tr>
+        </tbody>
+    </table>
+</section>
+{% endblock %}

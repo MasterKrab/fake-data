@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+
+{% from "metadata.html" import metadata %}
+
+{% block metadata %}
+{{ metadata("Random", "Documentation for random resource.", request.url) }}
+{% endblock %}
+
+
+{% block content %}
+<h1 class="title is-size-1 is-spaced">Random <span class="tag has-text-weight-semibold">{{ length }} items</span></h1>
+
+<section class="block">
+    <h2 class="title is-size-4 is-spaced">Get random resource</h2>
+    <code>/api/random</code>
+</section>
+
+<section class="block">
+    <h2 class="title is-size-4 is-spaced">Get resource by name</h2>
+    <code>/api/random/{resource}</code>
+
+    <h3 class="title is-size-5 mt-5">Examples</h3>
+    <div class="content">
+        <ul>
+            {% for example in ["user", "todo", "post"] %}
+            <li><a href="/api/random/{{ example }}" target="_blank">/api/random/{{ example }}</a></li>
+            {% endfor %}
+        </ul>
+    </div>
+</section>
+
+<section>
+    <h2 class="title is-size-4 is-spaced">Resources</h2>
+
+    <div class="content">
+        <ul>
+            {% for resource in ["user", "todo", "post", "comment", "photo"] %}
+            <li><code>{{ resource }}</code></li>
+            {% endfor %}
+        </ul>
+    </div>
+</section>
+{% endblock %}
