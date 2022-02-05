@@ -4,10 +4,18 @@ from os import path
 
 def create_app():
     from fastapi import FastAPI
+    from fastapi.middleware.cors import CORSMiddleware
     from routes import api, client
     from fastapi.staticfiles import StaticFiles
 
     app = FastAPI(docs_url=None, redoc_url=None)
+
+    app.add_middleware(
+        CORSMiddleware,
+        allow_origins="*",
+        allow_methods=["*"],
+        allow_headers=["*"],
+    )
 
     app.mount("/avatars", StaticFiles(directory="avatars"), name="avatars")
     app.mount("/static", StaticFiles(directory="static"), name="static")
